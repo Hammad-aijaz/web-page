@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manlystore_shoes | The Definitive Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&family=Plus+Jakarta+Sans:wght@200;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0a0a0a; --text: #ffffff; --accent: rgba(255,255,255,0.1); }
+        .light-mode { --bg: #fcfcfc; --text: #000000; --accent: rgba(0,0,0,0.1); }
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--bg); 
+            color: var(--text);
+            overflow-x: hidden;
+            transition: background-color 0.8s ease;
+        }
+        
+        .serif { font-family: 'Playfair Display', serif; }
+
+        /* 3D Master Shadow */
+        .text-3d {
+            display: inline-block;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .text-3d:hover { transform: rotateX(10deg) rotateY(-10deg) scale(1.02); }
+
+        /* Preloader */
+        #preloader {
+            position: fixed; inset: 0; background: #000; z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+
+        /* Shutter Logic */
+        .shutter {
+            position: fixed; top: 0; height: 100vh; width: 50%;
+            background: radial-gradient(circle at center, #0a192f 0%, #020617 100%);
+            z-index: 1000; transform: translateX(-101%);
+        }
+        #shutter-right { right: 0; transform: translateX(101%); }
+
+        /* Logo Styling */
+        .brand-logo { height: 60px; width: 60px; object-fit: cover; border-radius: 50%; border: 1px solid var(--accent); }
+
+        /* Hero Anchors */
+        .hero-line { height: 1px; background: var(--text); opacity: 0.2; flex-grow: 1; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="preloader">
+        <div class="text-center px-10">
+            <h2 id="preloader-text" class="serif text-2xl italic text-white mb-6 opacity-0">"True luxury is the absence of noise."</h2>
+            <div id="preloader-bar" class="w-0 h-[1px] bg-white mx-auto opacity-50"></div>
+        </div>
+    </div>
+
+    <div id="shutter-left" class="shutter"></div>
+    <div id="shutter-right" class="shutter"></div>
+
+    <nav class="fixed top-0 w-full z-[1100] px-10 py-8 flex justify-between items-center mix-blend-difference">
+        <img src="main logo.jpg" alt="Logo" class="brand-logo">
+        <div class="flex items-center gap-10 text-[10px] uppercase tracking-[0.4em] text-white">
+            <button id="day-toggle" class="hover:line-through transition">Day Mode</button>
+            <button id="watch-btn" class="font-bold border-b border-white">The Watch Suite</button>
+        </div>
+    </nav>
+
+    <main id="content-main">
+        <section class="h-screen flex flex-col justify-center items-center text-center relative px-6">
+            
+            <div class="absolute top-40 w-full max-w-4xl flex items-center gap-6 px-10 reveal">
+                <div class="hero-line"></div>
+                <span class="text-[9px] uppercase tracking-[1em] opacity-40 whitespace-nowrap">Collections 2026</span>
+                <div class="hero-line"></div>
+            </div>
+
+            <h1 class="serif text-[12vw] leading-none text-3d italic mb-4">Manlystore</h1>
+            
+            <div class="mt-6">
+                <p class="uppercase tracking-[1.2em] text-[10px] opacity-30 reveal">Step into Sovereignty</p>
+            </div>
+
+            <div class="absolute bottom-12 flex flex-col items-center gap-4 opacity-20">
+                <span class="text-[8px] uppercase tracking-[0.5em] rotate-90 mb-8">Scroll</span>
+                <div class="w-[1px] h-12 bg-current"></div>
+            </div>
+        </section>
+
+        <section class="px-6 md:px-32 py-20 space-y-40">
+            <div class="product-reveal grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+                <div class="aspect-square bg-zinc-900 overflow-hidden rounded-sm shadow-2xl">
+                    <img src="perfect 2.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000">
+                </div>
+                <div>
+                    <span class="text-[10px] uppercase tracking-widest opacity-30">Selection 01</span>
+                    <h2 class="serif text-6xl text-3d italic mt-4 mb-6">The Midnight</h2>
+                    <p class="text-sm opacity-50 max-w-sm leading-loose">The quintessence of evening elegance. Navy suede paired with a relentless pursuit of comfort.</p>
+                </div>
+            </div>
+
+            <div class="product-reveal grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+                <div class="md:order-last aspect-square bg-zinc-900 overflow-hidden rounded-sm shadow-2xl">
+                    <img src="shoe perfect.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000">
+                </div>
+                <div class="md:text-right flex flex-col md:items-end">
+                    <span class="text-[10px] uppercase tracking-widest opacity-30">Selection 02</span>
+                    <h2 class="serif text-6xl text-3d italic mt-4 mb-6">The Espresso</h2>
+                    <p class="text-sm opacity-50 max-w-sm leading-loose">A warm, textured tribute to the modern professional. Built for the journey, styled for the destination.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-32 px-10 md:px-32 border-t border-white/5">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-20">
+                <div class="reveal">
+                    <h4 class="serif text-2xl italic mb-6">Our Path</h4>
+                    <p class="text-xs opacity-40 leading-relaxed">Manlystore isn't a brand; it's a standard. We believe luxury is found in the things you don't see.</p>
+                </div>
+                <div class="reveal">
+                    <h4 class="serif text-2xl italic mb-6">Contact</h4>
+                    <p class="text-xs opacity-40 underline uppercase tracking-widest cursor-pointer">Concierge Desk</p>
+                </div>
+                <div class="reveal">
+                    <h4 class="serif text-2xl italic mb-6">Follow</h4>
+                    <div class="flex gap-6 text-[10px] uppercase tracking-widest opacity-40">
+                        <a href="#">Instagram</a>
+                        <a href="#">Archives</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <div id="watch-ui" class="fixed inset-0 z-[1200] hidden flex-col items-center justify-center text-center">
+        <button id="close-watch" class="absolute top-10 right-10 text-[10px] uppercase tracking-widest text-white border border-white/20 px-8 py-3 rounded-full hover:bg-white hover:text-black transition">Close Suite</button>
+        <h2 class="serif text-[10vw] text-blue-100 italic text-3d leading-none">Chrono Suite</h2>
+        <p class="text-blue-400 uppercase tracking-[1em] text-[10px] mt-8">Engineering Time</p>
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. PRELOADER
+        window.addEventListener('load', () => {
+            const tl = gsap.timeline();
+            tl.to("#preloader-text", { opacity: 1, duration: 1.2 })
+              .to("#preloader-bar", { width: "150px", duration: 1.5 }, "-=0.3")
+              .to("#preloader", { y: "-100%", duration: 1, ease: "expo.inOut" })
+              .set("body", { overflowY: "auto" });
+        });
+
+        // 2. DAY/DARK MODE
+        const toggle = document.getElementById('day-toggle');
+        toggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            toggle.innerText = isLight ? "Night Mode" : "Day Mode";
+            gsap.to("body", { backgroundColor: isLight ? "#fcfcfc" : "#0a0a0a", duration: 0.8 });
+        });
+
+        // 3. WATCH SHUTTER
+        const watchBtn = document.getElementById('watch-btn');
+        const closeWatch = document.getElementById('close-watch');
+        const watchUi = document.getElementById('watch-ui');
+
+        watchBtn.addEventListener('click', () => {
+            const tl = gsap.timeline();
+            tl.to("#shutter-left", { x: "0%", duration: 1.2, ease: "expo.inOut" })
+              .to("#shutter-right", { x: "0%", duration: 1.2, ease: "expo.inOut" }, "<")
+              .set(watchUi, { display: 'flex' })
+              .from(watchUi, { opacity: 0, duration: 0.5 });
+        });
+
+        closeWatch.addEventListener('click', () => {
+            const tl = gsap.timeline();
+            tl.to(watchUi, { opacity: 0, duration: 0.4 })
+              .to("#shutter-left", { x: "-101%", duration: 1, ease: "expo.inOut" })
+              .to("#shutter-right", { x: "101%", duration: 1, ease: "expo.inOut" }, "<")
+              .set(watchUi, { display: 'none', opacity: 1 });
+        });
+
+        // 4. REVEALS
+        gsap.utils.toArray(".reveal, .product-reveal").forEach(item => {
+            gsap.from(item, {
+                scrollTrigger: { trigger: item, start: "top 90%" },
+                opacity: 0, y: 30, duration: 1.5, ease: "power3.out"
+            });
+        });
+    </script>
+</body>
+</html>
